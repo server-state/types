@@ -6,7 +6,7 @@
   "scripts": {
     "test": "tsc -p sample",
     "build": "tsc -p .",
-    "build:docs": "typedoc",
+    "build:docs": "typedoc && touch docs/.nojekyll",
     "prepublish": "npm run-script build"
   },
   "repository": {
