@@ -19,6 +19,7 @@ jobs:
           npm ci
           npm run build
           npm test
+          zip types.zip -r types
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1.0.0
@@ -36,6 +37,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.gh_token }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./types
+          asset_path: ./types.zip
           asset_name: types.zip
           asset_content_type: application/zip

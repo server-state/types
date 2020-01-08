@@ -13,3 +13,9 @@ jobs:
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
+      - run: zip types.zip -r types
+      - name: Upload artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: types
+          path: types.zip
