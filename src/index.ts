@@ -55,7 +55,7 @@ declare namespace ServerState {
              * @param authorizedGroups The groups that have the authorization to access the resource
              * @return Is authorized? In other words: Is there an intersection between the groups the user belongs to and `authorizedGroups`?
              */
-            isAuthorized?: (req: Express.Request, authorizedGroups: string[]) => boolean;
+            isAuthorized?: (req: import('express').Request, authorizedGroups: string[]) => boolean;
         }
     }
 }
