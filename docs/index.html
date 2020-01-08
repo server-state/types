@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>@server-state/types - v0.0.3</title>
+	<title>@server-state/types - v0.0.4</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">@server-state/types - v0.0.3</a>
+					<a href="index.html" class="title">@server-state/types - v0.0.4</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -54,7 +54,7 @@
 					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1> @server-state/types - v0.0.3</h1>
+			<h1> @server-state/types - v0.0.4</h1>
 		</div>
 	</div>
 </header>
@@ -95,6 +95,33 @@
     // [...]
 }</code></pre>
 				<p>You can take a look at the <code>sample</code> directory for an example.</p>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h2>Usage</h2>
+				</a>
+				<p>When the types are set up, you&#39;re able to use them in JavaScript files (using doc comments) and Typescript files. In both contexts, the <code>ServerState</code> namespace including the common types with full documentation will be available to you.</p>
+				<a href="#inside-typescript" id="inside-typescript" style="color: inherit; text-decoration: none;">
+					<h3>Inside Typescript</h3>
+				</a>
+				<p>When the types are set up in the way described above, you&#39;ll be ready to go for typescript. The <code>ServerState</code> module with all common types is then globally available to you, meaning you can do something like:</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">let</span> a: ServerState.ServerBase.Config;
+
+<span class="hljs-built_in">console</span>.log(a);</code></pre>
+				<p>Please refer to <a href="sample/ts-sample.ts"><code>sample/ts-sample.ts</code></a> for some more examples.</p>
+				<a href="#inside-javascript" id="inside-javascript" style="color: inherit; text-decoration: none;">
+					<h3>Inside JavaScript</h3>
+				</a>
+				<p>To use the TypeScript language service, you&#39;ll need to add a <code>tsconfig.json</code> with <code>&quot;allowJS&quot;: true, &quot;checkJS&quot;: true</code> or a <code>jsconfig.json</code> file in your project folder. Then, you can use the types in your JSDoc comments in the following way:</p>
+				<pre><code class="language-js"><span class="hljs-comment">/**
+ * <span class="hljs-doctag">@type <span class="hljs-type">{ServerState.SMF}</span></span>
+ */</span>
+<span class="hljs-keyword">let</span> a;
+
+<span class="hljs-built_in">console</span>.log(a);</code></pre>
+				<p>Please refer to <a href="sample/js-sample.js"><code>sample/js-sample.js</code></a> for some more examples.</p>
+				<a href="#declared-types" id="declared-types" style="color: inherit; text-decoration: none;">
+					<h2>Declared types</h2>
+				</a>
+				<p>For a full overview of the declared types, please refer to <a href="https://server-state.github.io/types">https://server-state.github.io/types</a>.</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
