@@ -1,5 +1,5 @@
 /**
- * @type {ServerBase.Config}
+ * @type {ServerState.ServerBase.Config}
  */
 let a = {};
 

@@ -1,3 +1,3 @@
-let a: ServerBase.Config;
+let a: ServerState.ServerBase.Config;
 
-let b: SMF = () => true;
+let b: ServerState.SMF = () => true;
