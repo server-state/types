@@ -14,10 +14,9 @@ jobs:
       - run: npm install typedoc-plugin-markdown
       - run: rm -r docs
       - run: npm run build --if-present
-      - run: npm run build:docs
-      - run: zip docs.zip -r docs
+      - run: npm run build:docs -- --hideSources --hideBreadcrumbs
       - name: Upload artifact
         uses: actions/upload-artifact@v1
         with:
           name: markdown-docs
-          path: docs.zip
+          path: docs
