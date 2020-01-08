@@ -26,6 +26,118 @@ declare namespace ServerState {
     ) => JSONSerializable | Promise<JSONSerializable>
 
     /**
+     * Standard data formats
+     * @see https://server-state.github.io/specs/#/arch/data-formats
+     */
+    export namespace DataFormats {
+        /**
+         * A datapoint with an X- and a Y-coordinate. Can have a color and possibly a label (`title`).
+         *
+         * Suggested visualizations: Point in a scatter plot, point on a map
+         */
+        type XYDataPoint = {
+            /**
+             * The X coordinate of the point
+             */
+            x: number,
+            /**
+             * The Y coordinate of the point
+             */
+            y: number,
+            /**
+             * A label of the point. Can, e.g., get shown on mouse hover above a datapoint in a visualization
+             */
+            title?: string,
+            /**
+             * The color of the point. This can either be a string containing the HEX value of a color or a number marking the index in an arbitrary color scheme.
+             */
+            color?: string | number
+        }
+
+        /**
+         * We call numeric data containing 2D-points that can get plotted in a graph XYData. Below, you can find its specifications.
+         *
+         * @see https://server-state.github.io/specs/#/arch/data-formats?id=line-xy-data
+         */
+        export type XYData = Array<XYDataPoint>;
+
+        /**
+         * Hierarchical weighted data describes a tree structure, where nodes contain n child nodes and where all nodes have the size of the sum of the sum of all child nodes, with leaf nodes having an explicit size.
+         *
+         * Suggested visualizations: Lists, tables, treemaps, sunburst charts
+         *
+         * @see https://server-state.github.io/specs/#/arch/data-formats?id=hierarchical-weighted-data
+         */
+        export type HierarchicalData = {
+            /**
+             * A label of the point. Can, e.g., get shown on mouse hover above a datapoint in a visualization
+             */
+            title?: string,
+            /**
+             * The color of the point. This can either be a string containing the HEX value of a color or a number marking the index in an arbitrary color scheme.
+             */
+            color?: string | number,
+            /**
+             * The node's child nodes
+             */
+            children?: Array<HierarchicalData>,
+            /**
+             * The leaf node's size. Can get used for leaf nodes, i.e., where `children.length === 0`.
+             */
+            size?: number
+        }
+
+        /**
+         * Raw Markdown that gets generated in the SM and rendered in the client
+         *
+         * Suggested visualizations: Markdown renderer, Raw text renderer for environments with no Rich Text support
+         *
+         * @see https://server-state.github.io/specs/#/arch/data-formats?id=markdown
+         */
+        export type Markdown = string;
+
+        /**
+         * Raw text that gets generated in the SM and rendered in the client
+         *
+         * Suggested visualizations: Plain text output
+         *
+         * @see https://server-state.github.io/specs/#/arch/data-formats?id=text
+         */
+        export type Text = string;
+
+        /**
+         * Data that's "display-able" in a table format.
+         *
+         * Suggested visualizations: Table, Data Table, Selective charts (mapping numerical fields to x and y in line data)
+         *
+         * @see https://server-state.github.io/specs/#/arch/data-formats?id=tabletable-like
+         */
+        export type TableData = {
+            /**
+             * an array of strings containing the fields (columns) each rows has
+             */
+            _fields: string[],
+            /**
+             * an array of objects that include `string | number | boolean` values for the keys defined in `_fields`
+             */
+            rows: Array<{
+                [_field: string]: string | number | boolean
+            }>
+        }
+
+        /**
+         * A series of key-value-pair string | number | boolean values, where keys are unique strings
+         *
+         *  Please note that `true`/`false` should get mapped to _yes_/_no_ in visualizations.
+         *
+         * Suggested visualizations: Table, List
+         *
+         * @see https://server-state.github.io/specs/#/arch/data-formats?id=key-value-pair
+         */
+        export type KeyValuePairData = { [key: string]: string | number | boolean };
+    }
+
+    /**
      * Common type definitions for the server-base module
      * @see https://github.com/server-state/server-base
      */
