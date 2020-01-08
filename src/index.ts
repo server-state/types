@@ -56,8 +56,6 @@ declare namespace ServerState {
 
         /**
          * We call numeric data containing 2D-points that can get plotted in a graph XYData. Below, you can find its specifications.
-         *
-         * @see https://server-state.github.io/specs/#/arch/data-formats?id=line-xy-data
          */
         export type XYData = Array<XYDataPoint>;
 
@@ -65,8 +63,6 @@ declare namespace ServerState {
          * Hierarchical weighted data describes a tree structure, where nodes contain n child nodes and where all nodes have the size of the sum of the sum of all child nodes, with leaf nodes having an explicit size.
          *
          * Suggested visualizations: Lists, tables, treemaps, sunburst charts
-         *
-         * @see https://server-state.github.io/specs/#/arch/data-formats?id=hierarchical-weighted-data
          */
         export type HierarchicalData = {
             /**
@@ -91,8 +87,6 @@ declare namespace ServerState {
          * Raw Markdown that gets generated in the SM and rendered in the client
          *
          * Suggested visualizations: Markdown renderer, Raw text renderer for environments with no Rich Text support
-         *
-         * @see https://server-state.github.io/specs/#/arch/data-formats?id=markdown
          */
         export type Markdown = string;
 
@@ -100,8 +94,6 @@ declare namespace ServerState {
          * Raw text that gets generated in the SM and rendered in the client
          *
          * Suggested visualizations: Plain text output
-         *
-         * @see https://server-state.github.io/specs/#/arch/data-formats?id=text
          */
         export type Text = string;
 
@@ -109,8 +101,6 @@ declare namespace ServerState {
          * Data that's "display-able" in a table format.
          *
          * Suggested visualizations: Table, Data Table, Selective charts (mapping numerical fields to x and y in line data)
-         *
-         * @see https://server-state.github.io/specs/#/arch/data-formats?id=tabletable-like
          */
         export type TableData = {
             /**
@@ -131,8 +121,6 @@ declare namespace ServerState {
          *  Please note that `true`/`false` should get mapped to _yes_/_no_ in visualizations.
          *
          * Suggested visualizations: Table, List
-         *
-         * @see https://server-state.github.io/specs/#/arch/data-formats?id=key-value-pair
          */
         export type KeyValuePairData = { [key: string]: string | number | boolean };
     }
