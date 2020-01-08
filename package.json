@@ -1,0 +1,27 @@
+{
+  "name": "@server-state/types",
+  "version": "0.0.1",
+  "description": "Typescript Type Declarations that are common for Server State projects",
+  "types": "types/index.d.ts",
+  "scripts": {
+    "test": "tsc -p sample",
+    "build": "tsc -p .",
+    "prepublish": "npm run-script build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/server-state/types.git"
+  },
+  "author": "Server State",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/server-state/types/issues"
+  },
+  "homepage": "https://github.com/server-state/types#readme",
+  "devDependencies": {
+    "typescript": "^3.7.4"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.2"
+  }
+}
