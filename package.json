@@ -7,7 +7,8 @@
     "test": "tsc -p sample",
     "build": "tsc -p .",
     "build:docs": "typedoc && touch docs/.nojekyll",
-    "prepublish": "npm run-script build"
+    "prepublish": "npm run-script build",
+    "postversion": "build:docs"
   },
   "repository": {
     "type": "git",
