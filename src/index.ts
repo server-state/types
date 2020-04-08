@@ -17,13 +17,21 @@ declare namespace ServerState {
         | { [key: string]: JSONSerializable }
         | JSONSerializable[];
 
+
+    type SMFProps = {
+      /**
+       * Samples of possible return values of the SMF
+       */
+      sampleData?: JSONSerializable[];
+    }
+
+    type SMFFunction = (args: any) => JSONSerializable | Promise<JSONSerializable>;
+
     /**
      * A server module function.
      * @see https://server-state.github.io/specs/#/terminology/server-module-function
      */
-    export type SMF = (
-        args: any
-    ) => JSONSerializable | Promise<JSONSerializable>
+    export type SMF = SMFProps & SMFFunction
 
     /**
      * Standard data formats
