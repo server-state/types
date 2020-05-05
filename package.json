@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/server-state/types#readme",
   "devDependencies": {
-    "typedoc": "^0.15.6",
+    "typedoc": "^0.16.11",
     "typescript": "^3.7.4"
   },
   "dependencies": {
