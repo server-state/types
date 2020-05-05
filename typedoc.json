@@ -3,7 +3,5 @@
     "excludeExternals": true,
     "mode": "file",
     "includeDeclarations": true,
-    "src": ["types"],
-    "hideSources": true,
-    "hideBreadcrumbs": true
+    "src": ["types"]
 }
