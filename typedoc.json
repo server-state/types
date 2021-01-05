@@ -1,7 +1,5 @@
 {
     "out": "./docs",
     "excludeExternals": true,
-    "mode": "file",
-    "includeDeclarations": true,
-    "src": ["types"]
+    "entryPoints": ["src/index.ts"]
 }

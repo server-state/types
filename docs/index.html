@@ -4,16 +4,17 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>@server-state/types</title>
-	<meta name="description" content="">
+	<meta name="description" content="Documentation for @server-state/types">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
 </head>
 <body>
 <header>
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -38,8 +39,6 @@
 							</div>
 							<input type="checkbox" id="tsd-filter-inherited" checked />
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-only-exported" />
-							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -49,12 +48,7 @@
 	</div>
 	<div class="tsd-page-title">
 		<div class="container">
-			<ul class="tsd-breadcrumb">
-				<li>
-					<a href="globals.html">Globals</a>
-				</li>
-			</ul>
-			<h1>@server-state/types</h1>
+			<h1>Project @server-state/types</h1>
 		</div>
 	</div>
 </header>
@@ -73,11 +67,13 @@
 				<a href="#using-npm" id="using-npm" style="color: inherit; text-decoration: none;">
 					<h3>Using <code>npm</code></h3>
 				</a>
-				<pre><code class="language-bash">npm install --save-dev @server-state/types</code></pre>
+				<pre><code class="language-bash"><span style="color: #000000">npm install --save-dev @server-state/types</span>
+</code></pre>
 				<a href="#using-yarn" id="using-yarn" style="color: inherit; text-decoration: none;">
 					<h3>Using <code>yarn</code></h3>
 				</a>
-				<pre><code class="language-bash">yarn add -D @server-state/types</code></pre>
+				<pre><code class="language-bash"><span style="color: #000000">yarn add -D @server-state/types</span>
+</code></pre>
 				<a href="#locally" id="locally" style="color: inherit; text-decoration: none;">
 					<h3>Locally</h3>
 				</a>
@@ -103,20 +99,22 @@
 					<h3>Inside Typescript</h3>
 				</a>
 				<p>When the types are set up in the way described above, you&#39;ll be ready to go for typescript. The <code>ServerState</code> module with all common types is then globally available to you, meaning you can do something like:</p>
-				<pre><code class="language-typescript"><span class="hljs-keyword">let</span> a: ServerState.ServerBase.Config;
+				<pre><code class="language-typescript"><span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">a</span><span style="color: #000000">: </span><span style="color: #267F99">ServerState</span><span style="color: #000000">.</span><span style="color: #267F99">ServerBase</span><span style="color: #000000">.</span><span style="color: #267F99">Config</span><span style="color: #000000">;</span>
 
-<span class="hljs-built_in">console</span>.log(a);</code></pre>
+<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">a</span><span style="color: #000000">);</span>
+</code></pre>
 				<p>Please refer to <a href="sample/ts-sample.ts"><code>sample/ts-sample.ts</code></a> for some more examples.</p>
 				<a href="#inside-javascript" id="inside-javascript" style="color: inherit; text-decoration: none;">
 					<h3>Inside JavaScript</h3>
 				</a>
 				<p>To use the TypeScript language service, you&#39;ll need to add a <code>tsconfig.json</code> with <code>&quot;allowJS&quot;: true, &quot;checkJS&quot;: true</code> or a <code>jsconfig.json</code> file in your project folder. Then, you can use the types in your JSDoc comments in the following way:</p>
-				<pre><code class="language-js"><span class="hljs-comment">/**
- * <span class="hljs-doctag">@type <span class="hljs-type">{ServerState.SMF}</span></span>
- */</span>
-<span class="hljs-keyword">let</span> a;
+				<pre><code class="language-js"><span style="color: #008000">/**</span>
+<span style="color: #008000"> * </span><span style="color: #0000FF">@type</span><span style="color: #008000"> </span><span style="color: #267F99">{ServerState.SMF}</span>
+<span style="color: #008000"> */</span>
+<span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">a</span><span style="color: #000000">;</span>
 
-<span class="hljs-built_in">console</span>.log(a);</code></pre>
+<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">a</span><span style="color: #000000">);</span>
+</code></pre>
 				<p>Please refer to <a href="sample/js-sample.js"><code>sample/js-sample.js</code></a> for some more examples.</p>
 				<a href="#declared-types" id="declared-types" style="color: inherit; text-decoration: none;">
 					<h2>Declared types</h2>
@@ -127,16 +125,16 @@
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals  ">
-						<a href="globals.html"><em>Globals</em></a>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class=" tsd-kind-namespace">
 						<a href="modules/serverstate.html">Server<wbr>State</a>
 					</li>
-					<li class=" tsd-kind-module tsd-parent-kind-module">
+					<li class=" tsd-kind-namespace tsd-parent-kind-namespace">
 						<a href="modules/serverstate.dataformats.html">Server<wbr>State.<wbr>Data<wbr>Formats</a>
 					</li>
-					<li class=" tsd-kind-module tsd-parent-kind-module">
+					<li class=" tsd-kind-namespace tsd-parent-kind-namespace">
 						<a href="modules/serverstate.serverbase.html">Server<wbr>State.<wbr>Server<wbr>Base</a>
 					</li>
 				</ul>
@@ -152,59 +150,6 @@
 	<div class="container">
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
-			<ul class="tsd-legend">
-				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
-				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
-				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
-				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
-				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
-				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
-				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
-				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
-				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
-				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
-				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
-				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
-				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
-			</ul>
 		</div>
 	</div>
 </footer>
@@ -213,6 +158,5 @@
 </div>
 <div class="overlay"></div>
 <script src="assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>
