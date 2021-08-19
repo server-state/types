@@ -1,0 +1,128 @@
+<html lang="en">
+<head>
+    <meta charset='UTF-8'>
+    <title>Server State TypeScript types</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-default.min.css">
+    <style>
+        h5 {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        code {
+            line-height: inherit;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+        }
+
+        .spacer {
+            flex-grow: 1;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<header>
+    <a href="/" class="logo">Server State TypeScript types</a>
+            <a class="button" href="https://github.com/server-state/types/" target="_blank">GitHub</a>
+            <a class="button" href="https://www.server-state.tech/" target="_blank">Homepage</a>
+            <a class="button" href="https://www.fliegwerk.com/legal" target="_blank">Legal Notice</a>
+        <div class="spacer"></div>
+    <button onclick="openSearch()"><span class="icon-search"></span> Search: <kbd>Ctrl</kbd>+<kbd>K</kbd></button>
+</header>
+<div class="container">
+    <div class="row">
+        <aside class="col-sm-12 col-md-4 col-lg-3">
+            <nav class="fixed">
+                <a href="/">Project README</a>
+                <span>Modules</span>
+                                    <a href="/@server-state/types">
+                        <code>
+                            @server-state/types                        </code>
+                    </a>
+                            </nav>
+        </aside>
+        <div class="col-sm-12 col-md-8 col-lg-6">
+<h1>Server State TypeScript Definitions</h1>
+<p>npm: <a href="https://www.npmjs.com/package/@server-state/types"><code>@server-state/types</code></a></p>
+<p><a href="LICENSE"><img src="https://img.shields.io/github/license/server-state/types" alt="GitHub"></a>
+<a href="https://twitter.com/server_state"><img src="https://img.shields.io/twitter/follow/server_state?style=social" alt="Twitter Follow"></a></p>
+<p>Common, useful TypeScript definitions for use in Server State projects.</p>
+<h2>Installation</h2>
+<p>First, add it as a development dependency to your project:</p>
+<pre><code class="language-shell">npm install --save-dev @server-state/types
+</code></pre>
+<p>After the installation, check out the provided types:</p>
+<pre><code class="language-ts">import { Extension } from '@server-state/types';
+
+const myExtension: Extension&lt;MyConfig&gt; = (config, api) =&gt; {
+    //...
+	return {
+	    name: 'MyExtension'
+	};
+};
+</code></pre>
+<p>For all full list of types, check out the reference:
+<a href="https://types.server-state.tech/">https://types.server-state.tech/</a></p>
+<h2>Package structure</h2>
+<pre><code>.
+├── sample (samples for the types, useful for testing the types)
+│   ├── sample.ts
+│   ├── sample-js.js
+│   └── tsconfig.json
+├── src
+│   ├── index.ts
+│   └── [...]
+├── types (built in build script)
+│   ├── index.d.ts
+│   └── [...]
+├── CHANGELOG.md (DO NOT TOUCH! auto-generated changelog for the package)
+├── LICENSE
+├── package.json
+├── README.md (you're here :P)
+└── [...] (configuration files, etc.)
+</code></pre>
+<h2>Contributing</h2>
+<p>Coming soon :wink:</p>
+<h2>Contributors</h2>
+<p>Thank you to all contributors of this repository:</p>
+<p><a href="https://github.com/server-state/types/graphs/contributors"><img src="https://contrib.rocks/image?repo=server-state/types" alt="Contributors"></a></p>
+<p>Made with <a href="https://contrib.rocks">contributors-img</a>.</p>
+<h2>About</h2>
+<p>This is part of <a href="https://www.server-state.tech/">Server State</a>, a project by <a href="https://www.fliegwerk.com/">fliegwerk</a>.</p>
+</div>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/flexsearch@0.6.32/dist/flexsearch.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fliegwerk/search-popup@2.0.0/dist/bundle.js"></script>
+<script>
+    const searchIndex = new FlexSearch({
+        encode: q => (q.replace(/([a-z])([A-Z])/g, "$1 $2")).toLowerCase() + ' ' + q.toLowerCase(),
+        // encode: q => (q.replace(/(.*)[\W.](.*)/g, "$1$2")).toLowerCase(),
+        tokenize: "full",
+        threshold: 0,
+        resolution: 9,
+        depth: 3,
+        doc: {
+            id: 'url',
+            field: ['name', 'text']
+        }
+    });
+
+    function search(q) {
+        q = q || '';
+        return searchIndex.search((q.replace(/([a-z])([A-Z])/g, "$1 $2")).toLowerCase(), 5)
+    }
+
+    fetch('/search-index.json').then(r => r.json()).then(index => {
+        searchIndex.add(index)
+        const searchPopup = document.createElement('search-popup');
+        searchPopup.setAttribute('search', 'search')
+        document.body.appendChild(searchPopup);
+    });
+</script>
+</body>
+</html>
