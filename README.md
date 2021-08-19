@@ -1,69 +1,69 @@
-# @server-state/types
-Typescript Type Declarations that are common for Server State projects.
+# Server State TypeScript Definitions
 
-Types are defined in the global `ServerState` namespace.
+npm: [`@server-state/types`](https://www.npmjs.com/package/@server-state/types)
+
+[![GitHub](https://img.shields.io/github/license/server-state/types)](LICENSE)
+[![Twitter Follow](https://img.shields.io/twitter/follow/server_state?style=social)](https://twitter.com/server_state)
+
+Common, useful TypeScript definitions for use in Server State projects.
 
 ## Installation
-### Using `npm`
-```bash
+
+First, add it as a development dependency to your project:
+
+```shell
 npm install --save-dev @server-state/types
 ```
 
-### Using `yarn`
-```bash
-yarn add -D @server-state/types
+After the installation, check out the provided types:
+
+```ts
+import { Extension } from '@server-state/types';
+
+const myExtension: Extension<MyConfig> = (config, api) => {
+	//...
+	return {
+		name: 'MyExtension'
+	};
+};
 ```
 
-### Locally
+For all full list of types, check out the reference:
+https://types.server-state.tech/
 
-*This is not recommended as updates are not automated this way*
+## Package structure
 
-Download the `types.zip` from the latest release and extract it in your project. This creates a `types` folder with an `index.d.ts` file.
-
-Be sure to include the relative path to the `types` folder in your `tsconfig.json`'s or `jsconfig.json`'s `types` field:
-
-```json5
-{
-    "compilerOptions": {
-        // [...]
-        "types": [
-            // [...]
-            "./types/"
-        ]
-    }
-    // [...]
-}
+```
+.
+├── sample (samples for the types, useful for testing the types)
+│   ├── sample.ts
+│   ├── sample-js.js
+│   └── tsconfig.json
+├── src
+│   ├── index.ts
+│   └── [...]
+├── types (built in build script)
+│   ├── index.d.ts
+│   └── [...]
+├── CHANGELOG.md (DO NOT TOUCH! auto-generated changelog for the package)
+├── LICENSE
+├── package.json
+├── README.md (you're here :P)
+└── [...] (configuration files, etc.)
 ```
 
-You can take a look at the `sample` directory for an example.
+## Contributing
 
-## Usage
-When the types are set up, you're able to use them in JavaScript files (using doc comments) and Typescript files. In both contexts, the `ServerState` namespace including the common types with full documentation will be available to you.
+Coming soon :wink:
 
-### Inside Typescript
-When the types are set up in the way described above, you'll be ready to go for typescript. The `ServerState` module with all common types is then globally available to you, meaning you can do something like:
+## Contributors
 
-```typescript
-let a: ServerState.ServerBase.Config;
+Thank you to all contributors of this repository:
 
-console.log(a);
-```
+[![Contributors](https://contrib.rocks/image?repo=server-state/types)](https://github.com/server-state/types/graphs/contributors)
 
-Please refer to [`sample/ts-sample.ts`](sample/ts-sample.ts) for some more examples.
+Made with [contributors-img](https://contrib.rocks).
 
-### Inside JavaScript
-To use the TypeScript language service, you'll need to add a `tsconfig.json` with `"allowJS": true, "checkJS": true` or a `jsconfig.json` file in your project folder. Then, you can use the types in your JSDoc comments in the following way:
+## About
 
-```js
-/**
- * @type {ServerState.SMF}
- */
-let a;
-
-console.log(a);
-```
-
-Please refer to [`sample/js-sample.js`](sample/js-sample.js) for some more examples.
-
-## Declared types
-For a full overview of the declared types, please refer to https://server-state.github.io/types.
+This is part of [Server State](https://www.server-state.tech/), a project by [fliegwerk](https://www.fliegwerk.com/).

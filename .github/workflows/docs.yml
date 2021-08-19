@@ -1,11 +1,13 @@
-name: CI
+name: Docs
 
 # Events that trigger this workflow
-on: [push, pull_request]
+on:
+  push:
+    branches: [main]
 
 jobs:
-  ci:
-    name: Build, lint and test
+  build-and-deploy:
+    name: Build and deploy documentation
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 📥
@@ -27,22 +29,16 @@ jobs:
       - name: Install npm v7 ⬆
         run: npm install --global npm@v7
 
-      - name: Build types 🛠️
-        run: npm run build
-
       - name: Install development dependencies 📚
         run: npm ci
-      - name: Check code style 🧽
-        run: npm run style:ci
-      - name: Run Linter 📑
-        run: npm run lint
+      - name: Build documentation 🛠️
+        run: npm run docs:ci
+      - name: Finalize build 🪄
+        run: touch docs/.nojekyll
 
-      - name: Test types
-        run: npm run test
-
-      - name: Upload types artifact 📤
-        uses: actions/upload-artifact@v2.2.4
+      - name: Deploy documentation 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
-          name: types-${{ github.run_number }}
-          path: types
-          retention-days: 7
+          branch: gh-pages
+          folder: docs
+          clean: true

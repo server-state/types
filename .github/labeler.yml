@@ -1,8 +1,0 @@
-repo:
-  - ./*
-
-types:
-  - src/**
-
-samples:
-  - sample/**
