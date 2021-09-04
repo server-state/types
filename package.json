@@ -46,7 +46,7 @@
 		}
 	],
 	"peerDependencies": {
-		"@fliegwerk/logsemts": "^0.4.2"
+		"rxjs": ">=7"
 	},
 	"devDependencies": {
 		"@types/node": "^16.6.2",

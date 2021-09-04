@@ -1,4 +1,5 @@
 import { JsonSerializable } from './json-serializable';
+import { ExtensionApi } from './extension-api';
 
 /**
  * The base configuration.
@@ -20,5 +21,5 @@ export interface ExtensionObject {
  */
 export type Extension<T extends BaseConfig> = (
 	config: T,
-	api: any
+	api: ExtensionApi
 ) => ExtensionObject;
