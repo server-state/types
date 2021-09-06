@@ -304,6 +304,36 @@
                         </div>
     <div class="card fluid">
         <!-- Name with anchor link -->
+        <a id="PubSubHandleFunction" href="#PubSubHandleFunction">
+            <h3><code>PubSubHandleFunction</code></h3></a>
+
+        <!-- Description, based on type -->
+                                    <!-- Signature -->
+<p>
+    <b>
+        <code>
+            <!-- Name -->
+            type PubSubHandleFunction
+            <!-- Type Parameters -->
+                    </code>
+    </b>
+</p>
+
+<!-- Definition -->
+<p>
+    <b>
+        Alias for:
+        <code>
+            (...args: JsonSerializable[]) =&gt; void | JsonSerializable | Promise&lt;JsonSerializable | void&gt;        </code>
+    </b>
+</p>
+
+<!-- Docs -->
+    <!-- no docs :( -->
+    <p><small>No docs provided</small></p>
+                        </div>
+    <div class="card fluid">
+        <!-- Name with anchor link -->
         <a id="ExtensionApi" href="#ExtensionApi">
             <h3><code>ExtensionApi</code></h3></a>
 
@@ -334,6 +364,208 @@
 
 <!-- Methods -->
     <h4>Methods</h4>
+            <a id="ExtensionApi.request" href="#ExtensionApi.request">
+            <h5><code>
+                                                                                                    request                                        (...)
+                                    </code></h5>
+        </a>
+        
+<!-- Signature -->
+<p>
+    <b>
+        <code>
+            
+            function request
+            <!-- Type Parameters -->
+            
+                        <!-- Parameters -->
+            (
+                            
+                <br>
+                &nbsp;&nbsp;
+
+                                
+                <!-- parameter name -->
+                channel
+                
+                <!-- type -->
+                :
+                string
+                <!-- Default value -->
+                
+                <!-- Comma if not last -->
+                ,                             
+                <br>
+                &nbsp;&nbsp;
+
+                                ...
+                <!-- parameter name -->
+                args
+                
+                <!-- type -->
+                :
+                JsonSerializable[]
+                <!-- Default value -->
+                
+                <!-- Comma if not last -->
+                                                        <br>
+                        )
+
+            <!-- Return type -->
+            :
+            Promise&lt;JsonSerializable&gt;        </code>
+    </b>
+</p>
+
+<!-- Docs -->
+    <!-- Description -->
+    <p>Calls a subroutine defined by the given channel name and returns a promise that resolves with its return value.</p>
+<p>Handled by <a href="#handle"><code>handle</code></a></p>
+
+    <!-- Tags -->
+    <div class="row">
+                    <!-- Tag name -->
+            <div class="col-sm-2">
+                <p>
+                    <mark class="tag">@param:</mark>
+                </p>
+            </div>
+
+            <!-- Tag content -->
+            <div class="col-sm-10"><p>channel The channel name that defines the subroutine</p>
+</div>
+                    <!-- Tag name -->
+            <div class="col-sm-2">
+                <p>
+                    <mark class="tag">@param:</mark>
+                </p>
+            </div>
+
+            <!-- Tag content -->
+            <div class="col-sm-10"><p>args The args that get passed to <a href="#handle"><code>handle</code></a></p>
+</div>
+                    <!-- Tag name -->
+            <div class="col-sm-2">
+                <p>
+                    <mark class="tag">@returns:</mark>
+                </p>
+            </div>
+
+            <!-- Tag content -->
+            <div class="col-sm-10"><p><a href="#Promise"><code>Promise</code></a> that resolves to the handler's <code>callback</code> return/resolve value</p>
+</div>
+                    <!-- Tag name -->
+            <div class="col-sm-2">
+                <p>
+                    <mark class="tag">@see:</mark>
+                </p>
+            </div>
+
+            <!-- Tag content -->
+            <div class="col-sm-10"><p><a href="#handle"><code>handle</code></a></p>
+</div>
+            </div>
+            <a id="ExtensionApi.handle" href="#ExtensionApi.handle">
+            <h5><code>
+                                                                                                    handle                                        (...)
+                                    </code></h5>
+        </a>
+        
+<!-- Signature -->
+<p>
+    <b>
+        <code>
+            
+            function handle
+            <!-- Type Parameters -->
+            
+                        <!-- Parameters -->
+            (
+                            
+                <br>
+                &nbsp;&nbsp;
+
+                                
+                <!-- parameter name -->
+                channel
+                
+                <!-- type -->
+                :
+                string
+                <!-- Default value -->
+                
+                <!-- Comma if not last -->
+                ,                             
+                <br>
+                &nbsp;&nbsp;
+
+                                
+                <!-- parameter name -->
+                callback
+                
+                <!-- type -->
+                :
+                PubSubHandleFunction
+                <!-- Default value -->
+                
+                <!-- Comma if not last -->
+                                                        <br>
+                        )
+
+            <!-- Return type -->
+            :
+            Promise&lt;void&gt;        </code>
+    </b>
+</p>
+
+<!-- Docs -->
+    <!-- Description -->
+    <p>Handles a request triggered by <a href="#request"><code>request</code></a>.</p>
+<p>Only awaits &quot;active subscription&quot;, not execution!</p>
+
+    <!-- Tags -->
+    <div class="row">
+                    <!-- Tag name -->
+            <div class="col-sm-2">
+                <p>
+                    <mark class="tag">@param:</mark>
+                </p>
+            </div>
+
+            <!-- Tag content -->
+            <div class="col-sm-10"><p>channel The channel to listen to. The channel defines the event.</p>
+</div>
+                    <!-- Tag name -->
+            <div class="col-sm-2">
+                <p>
+                    <mark class="tag">@param:</mark>
+                </p>
+            </div>
+
+            <!-- Tag content -->
+            <div class="col-sm-10"><p>callback The callback's return (/resolve) value gets passed back to <a href="#request"><code>request</code></a></p>
+</div>
+                    <!-- Tag name -->
+            <div class="col-sm-2">
+                <p>
+                    <mark class="tag">@returns:</mark>
+                </p>
+            </div>
+
+            <!-- Tag content -->
+            <div class="col-sm-10"><p><a href="#Promise"><code>Promise</code></a> that resolves to <a href="#Observable"><code>Observable</code></a> once the subscription is active</p>
+</div>
+                    <!-- Tag name -->
+            <div class="col-sm-2">
+                <p>
+                    <mark class="tag">@see:</mark>
+                </p>
+            </div>
+
+            <!-- Tag content -->
+            <div class="col-sm-10"><p><a href="#request"><code>request</code></a></p>
+</div>
+            </div>
             <a id="ExtensionApi.subscribe" href="#ExtensionApi.subscribe">
             <h5><code>
                                                                                                     subscribe                                        (...)
@@ -369,13 +601,14 @@
 
             <!-- Return type -->
             :
-            Observable&lt;JsonSerializable&gt;        </code>
+            Promise&lt;Observable&lt;JsonSerializable&gt;&gt;        </code>
     </b>
 </p>
 
 <!-- Docs -->
     <!-- Description -->
     <p>Subscribes to a channel on the event bus.</p>
+<p>Only awaits &quot;active subscription&quot;, not execution!</p>
 
     <!-- Tags -->
     <div class="row">
@@ -397,7 +630,7 @@
             </div>
 
             <!-- Tag content -->
-            <div class="col-sm-10"><p>an RXJS Observable</p>
+            <div class="col-sm-10"><p><a href="#Promise"><code>Promise</code></a> that resolves to <a href="#Observable"><code>Observable</code></a> once the subscription is active</p>
 </div>
             </div>
             <a id="ExtensionApi.subscribe" href="#ExtensionApi.subscribe">
@@ -442,6 +675,7 @@
 <!-- Docs -->
     <!-- Description -->
     <p>Subscribes to channels on the event bus.</p>
+<p>Only awaits &quot;active subscription&quot;, not execution!</p>
 
     <!-- Tags -->
     <div class="row">
@@ -464,6 +698,16 @@
 
             <!-- Tag content -->
             <div class="col-sm-10"><p>an RXJS Observable which contains the message and the channel name</p>
+</div>
+                    <!-- Tag name -->
+            <div class="col-sm-2">
+                <p>
+                    <mark class="tag">@returns:</mark>
+                </p>
+            </div>
+
+            <!-- Tag content -->
+            <div class="col-sm-10"><p><a href="#Promise"><code>Promise</code></a> that resolves to <a href="#Observable"><code>Observable</code></a> that emits <code>[message, channelName]</code> once the subscription is active</p>
 </div>
             </div>
             <a id="ExtensionApi.pSubscribe" href="#ExtensionApi.pSubscribe">
@@ -529,7 +773,7 @@
             </div>
 
             <!-- Tag content -->
-            <div class="col-sm-10"><p>an RXJS Observable which contains the message and the channel name</p>
+            <div class="col-sm-10"><p><a href="#Promise"><code>Promise</code></a> that resolves to <a href="#Observable"><code>Observable</code></a> that emits <code>[message, channelName]</code> once the subscription is active</p>
 </div>
             </div>
             <a id="ExtensionApi.publish" href="#ExtensionApi.publish">
@@ -619,7 +863,7 @@
             </div>
 
             <!-- Tag content -->
-            <div class="col-sm-10"><p>an RXJS Observable which resolves when the message was successfully published</p>
+            <div class="col-sm-10"><p><a href="#Promise"><code>Promise</code></a> which resolves when the message was successfully published</p>
 </div>
             </div>
                             </div>
