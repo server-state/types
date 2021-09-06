@@ -14,7 +14,7 @@ export interface ExtensionApi {
 	 * 
 	 * @see {@link handle}
 	 */
-	async request(channel: string, ...args: JsonSerializable[]): Promise<JsonSerializable>;
+	request(channel: string, ...args: JsonSerializable[]): Promise<JsonSerializable>;
 
 	/**
 	 * Handles a request triggered by {@link request}.
@@ -27,7 +27,7 @@ export interface ExtensionApi {
 	 * 
 	 * @see {@link request}
 	 */
-	async handle(channel: string, callback: PubSubHandleFunction): Promise<void>
+	handle(channel: string, callback: PubSubHandleFunction): Promise<void>
 
 	/**
 	 * Subscribes to a channel on the event bus.
@@ -37,7 +37,7 @@ export interface ExtensionApi {
 	 * @param channel - the channel to subscribe to
 	 * @returns {@link Promise} that resolves to {@link Observable} once the subscription is active
 	 */
-	async subscribe(channel: string): Promise<Observable<JsonSerializable>>;
+	subscribe(channel: string): Promise<Observable<JsonSerializable>>;
 
 	/**
 	 * Subscribes to channels on the event bus.
@@ -48,7 +48,7 @@ export interface ExtensionApi {
 	 * @returns an RXJS Observable which contains the message and the channel name
 	 * @returns {@link Promise} that resolves to {@link Observable} that emits `[message, channelName]` once the subscription is active
 	 */
-	async subscribe(
+	subscribe(
 		...channels: string[]
 	): Observable<readonly [message: JsonSerializable, channel: string]>;
 
