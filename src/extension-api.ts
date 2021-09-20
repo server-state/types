@@ -1,17 +1,23 @@
 import { Observable } from 'rxjs';
 import { JsonSerializable } from './json-serializable';
 
+/**
+ * A function that handles requests triggered by {@link ExtensionApi.request} in {@link ExtensionApi.handle}
+ */
 export type PubSubHandleFunction = (
 	...args: JsonSerializable[]
 ) => void | JsonSerializable | Promise<JsonSerializable | void>;
 
+/**
+ * The APIs passed to an {@link Extension} as `api`
+ */
 export interface ExtensionApi {
 	/**
 	 * Calls a subroutine defined by the given channel name and returns a promise that resolves with its return value.
 	 *
 	 * Handled by {@link handle}
-	 * @param channel The channel name that defines the subroutine
-	 * @param args The args that get passed to {@link handle}
+	 * @param channel - The channel name that defines the subroutine
+	 * @param args - The args that get passed to {@link handle}
 	 * @returns {@link Promise} that resolves to the handler's `callback` return/resolve value
 	 *
 	 * @see {@link handle}
@@ -26,8 +32,8 @@ export interface ExtensionApi {
 	 *
 	 * Only awaits "active subscription", not execution!
 	 *
-	 * @param channel The channel to listen to. The channel defines the event.
-	 * @param callback The callback's return (/resolve) value gets passed back to {@link request}
+	 * @param channel - The channel to listen to. The channel defines the event.
+	 * @param callback - The callback's return (/resolve) value gets passed back to {@link request}
 	 * @returns {@link Promise} that resolves to {@link Observable} once the subscription is active
 	 *
 	 * @see {@link request}
@@ -55,7 +61,7 @@ export interface ExtensionApi {
 	 */
 	subscribe(
 		...channels: string[]
-	): Observable<readonly [message: JsonSerializable, channel: string]>;
+	): Promise<Observable<readonly [message: JsonSerializable, channel: string]>>;
 
 	/**
 	 * Subscribes to channels on the event bus using patterns.
@@ -64,13 +70,13 @@ export interface ExtensionApi {
 	 */
 	pSubscribe(
 		...patterns: string[]
-	): Observable<readonly [message: JsonSerializable, channel: string]>;
+	): Promise<Observable<readonly [message: JsonSerializable, channel: string]>>;
 
 	/**
 	 * Publishes a message to a channel on the event bus.
 	 * @param channel - the channel to publish to
 	 * @param message - the message to publish
-	 * @return {@link Promise} which resolves when the message was successfully published
+	 * @returns {@link Promise} which resolves when the message was successfully published
 	 */
-	publish(channel: string, message: JsonSerializable): Observable<void>;
+	publish(channel: string, message: JsonSerializable): Promise<void>;
 }
