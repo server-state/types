@@ -50,7 +50,7 @@
 <p>npm: <a href="https://www.npmjs.com/package/@server-state/types"><code>@server-state/types</code></a></p>
 <p><a href="LICENSE"><img src="https://img.shields.io/github/license/server-state/types" alt="GitHub"></a>
 <a href="https://twitter.com/server_state"><img src="https://img.shields.io/twitter/follow/server_state?style=social" alt="Twitter Follow"></a></p>
-<p>Common, useful TypeScript definitions for use in Server State projects.</p>
+<p>Standard TypeScript definitions for use in Server State projects.</p>
 <h2>Installation</h2>
 <p>First, add it as a development dependency to your project:</p>
 <pre><code class="language-shell">npm install --save-dev @server-state/types
@@ -65,8 +65,41 @@ const myExtension: Extension&lt;MyConfig&gt; = (config, api) =&gt; {
 	};
 };
 </code></pre>
-<p>For all full list of types, check out the reference:
-<a href="https://types.server-state.tech/">https://types.server-state.tech/</a></p>
+<p>You can also, optionally, add the package to your <code>tsconfig.json</code>'s <code>compilerOptions.typeRoots</code> array to get access to the most common types via the global <code>ServerStateTypes</code> namespace:</p>
+<pre><code class="language-json">// tsconfig.json
+{
+	&quot;compilerOptions&quot;: {
+		&quot;typeRoots&quot;: [
+			&quot;node_modules/@server-state/types&quot;,
+			&quot;node_modules/@types&quot;
+			// [...]
+		]
+		// [...]
+	}
+	// [...]
+}
+</code></pre>
+<pre><code class="language-ts">// some TypeScript source file
+
+let a: ServerStateTypes.JsonSerializable;
+</code></pre>
+<p>Namespace access is handy when you write in JavaScript and don't want to use <code>import('@server-state/types')</code> everywhere in your JSDoc comments:</p>
+<pre><code class="language-js">// some JavaScript source file
+
+/**
+ * @type {ServerStateTypes.JsonSerializable}
+ */
+let a;
+
+// instead of
+
+/**
+ * @type {import('@server-state/types').JsonSerializable}
+ */
+let b;
+</code></pre>
+<p>For all complete list of types, check out the reference:
+<a href="https://types.server-state.tech/">types.server-state.tech</a></p>
 <h2>Package structure</h2>
 <pre><code>.
 ├── sample (samples for the types, useful for testing the types)
@@ -76,14 +109,14 @@ const myExtension: Extension&lt;MyConfig&gt; = (config, api) =&gt; {
 ├── src
 │   ├── index.ts
 │   └── [...]
-├── types (built in build script)
+├── types (built-in build script)
 │   ├── index.d.ts
 │   └── [...]
 ├── CHANGELOG.md (DO NOT TOUCH! auto-generated changelog for the package)
 ├── LICENSE
 ├── package.json
 ├── README.md (you're here :P)
-└── [...] (configuration files, etc.)
+└── [...] (configuration files)
 </code></pre>
 <h2>Contributing</h2>
 <p>Coming soon :wink:</p>
@@ -92,7 +125,7 @@ const myExtension: Extension&lt;MyConfig&gt; = (config, api) =&gt; {
 <p><a href="https://github.com/server-state/types/graphs/contributors"><img src="https://contrib.rocks/image?repo=server-state/types" alt="Contributors"></a></p>
 <p>Made with <a href="https://contrib.rocks">contributors-img</a>.</p>
 <h2>About</h2>
-<p>This is part of <a href="https://www.server-state.tech/">Server State</a>, a project by <a href="https://www.fliegwerk.com/">fliegwerk</a>.</p>
+<p>This repository is part of <a href="https://www.server-state.tech/">Server State</a>, a project by <a href="https://www.fliegwerk.com/">fliegwerk</a>.</p>
 </div>
 </div>
 </div>
