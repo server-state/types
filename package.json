@@ -2,7 +2,7 @@
 	"name": "@server-state/types",
 	"description": "Types for Server State and their projects",
 	"license": "MIT",
-	"version": "0.3.0",
+	"version": "0.3.1",
 	"homepage": "https://www.server-state.tech/",
 	"types": "types/index.d.ts",
 	"files": [
