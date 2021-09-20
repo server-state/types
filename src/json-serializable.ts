@@ -1,5 +1,13 @@
 /**
- * a type that only allows JSON serializable data
+ * Type that only allows JSON serializable data, i.e., where the following holds true:
+ *
+ * ```ts
+ * const orig: JsonSerializable = // [...]
+ *
+ * const new: JsonSerializable = JSON.parse(JSON.stringify(orig));
+ *
+ * // orig and new have the exact same values
+ * ```
  *
  * @see {@link JSON.parse}
  * @see {@link JSON.stringify}

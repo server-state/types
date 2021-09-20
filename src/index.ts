@@ -5,8 +5,8 @@ import * as a from './extension-api';
 declare global {
 	namespace ServerStateTypes {
 		export import JsonSerializable = j.JsonSerializable;
-		export import Extension = e;
-		export import ExtensionApi = a;
+		export import Extension = e.Extension;
+		export import ExtensionApi = a.ExtensionApi;
 	}
 }
 

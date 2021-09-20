@@ -3,6 +3,22 @@ import { JsonSerializable } from './json-serializable';
 
 /**
  * A function that handles requests triggered by {@link ExtensionApi.request} in {@link ExtensionApi.handle}
+ *
+ * @param args - the additional arguments passed to {@link ExtensionApi.request}.
+ * @returns Synchronously (or asynchronously, with a {@link Promise} that resolves to the value) a JsonSerializable that gets returned to the {@link ExtensionApi.request} call, or `void` ("returning" `undefined`)
+ *
+ * @example
+ * ```ts
+ * // let api: ExtensionApi;
+ *
+ * await api.handle('REQUEST_SOME_INFO', (arg1, arg2) => `${arg1};${arg2}`);
+ *
+ * // handler is now registered and can be used
+ *
+ * const info = await api.request('REQUEST_SOME_INFO', 'a', 2);
+ *
+ * console.log(info); // "a;2"
+ * ```
  */
 export type PubSubHandleFunction = (
 	...args: JsonSerializable[]
@@ -20,12 +36,25 @@ export interface ExtensionApi {
 	 * @param args - The args that get passed to {@link handle}
 	 * @returns {@link Promise} that resolves to the handler's `callback` return/resolve value
 	 *
+	 * @example
+	 * ```ts
+	 * // let api: ExtensionApi;
+	 *
+	 * await api.handle('REQUEST_SOME_INFO', (arg1, arg2) => `${arg1};${arg2}`);
+	 *
+	 * // handler is now registered and can be used
+	 *
+	 * const info = await api.request('REQUEST_SOME_INFO', 'a', 2);
+	 *
+	 * console.log(info); // "a;2"
+	 * ```
+	 *
 	 * @see {@link handle}
 	 */
 	request(
 		channel: string,
 		...args: JsonSerializable[]
-	): Promise<JsonSerializable>;
+	): Promise<JsonSerializable | void>;
 
 	/**
 	 * Handles a request triggered by {@link request}.
@@ -35,6 +64,19 @@ export interface ExtensionApi {
 	 * @param channel - The channel to listen to. The channel defines the event.
 	 * @param callback - The callback's return (/resolve) value gets passed back to {@link request}
 	 * @returns {@link Promise} that resolves to {@link Observable} once the subscription is active
+	 *
+	 * @example
+	 * ```ts
+	 * // let api: ExtensionApi;
+	 *
+	 * await api.handle('REQUEST_SOME_INFO', (arg1, arg2) => `${arg1};${arg2}`);
+	 *
+	 * // handler is now registered and can be used
+	 *
+	 * const info = await api.request('REQUEST_SOME_INFO', 'a', 2);
+	 *
+	 * console.log(info); // "a;2"
+	 * ```
 	 *
 	 * @see {@link request}
 	 */
