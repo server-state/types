@@ -1,7 +1,6 @@
 {
 	"name": "@server-state/types",
 	"description": "Types for Server State and their projects",
-	"private": true,
 	"license": "MIT",
 	"version": "0.2.0",
 	"homepage": "https://www.server-state.tech/",
