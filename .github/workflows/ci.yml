@@ -29,11 +29,6 @@ jobs:
       - name: Build types 🛠️
         run: npm run build
 
-      - name: Check code style 🧽
-        run: npm run style:ci
-      - name: Run Linter 📑
-        run: npm run lint
-
       - name: Test types
         run: npm run test
 
