@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.3.1](https://www.github.com/server-state/types/compare/v0.3.0...v0.3.1) (2021-09-20)
+
+
+### Bug Fixes
+
+* :bookmark: Re-release to ensure consistency across registries ([6085013](https://www.github.com/server-state/types/commit/6085013130100ba9091661a204b02e8ce45087ff))
+
 ## [0.3.0](https://www.github.com/server-state/types/compare/v0.2.0...v0.3.0) (2021-09-20)
 
 
