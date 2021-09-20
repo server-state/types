@@ -7,7 +7,7 @@ module.exports = {
 		ecmaVersion: 11,
 		sourceType: 'module',
 		tsconfigRootDir: __dirname,
-		project: [path.join(__dirname, 'tsconfig.json')]
+		project: path.join(__dirname, 'tsconfig.json')
 	},
 	env: {
 		browser: true,
@@ -21,6 +21,7 @@ module.exports = {
 	plugins: ['@typescript-eslint', 'tsdoc', 'jsdoc', 'prettier'],
 	extends: [
 		'eslint:recommended',
+		'airbnb',
 		'airbnb-typescript',
 		'plugin:@typescript-eslint/recommended',
 		'plugin:@typescript-eslint/recommended-requiring-type-checking',
