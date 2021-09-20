@@ -23,15 +23,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      # Remove, when setup-node action supports specifying the node version
-      - name: Install npm v7 ⬆
-        run: npm install --global npm@v7
+      - name: Install development dependencies 📚
+        run: npm ci
 
       - name: Build types 🛠️
         run: npm run build
 
-      - name: Install development dependencies 📚
-        run: npm ci
       - name: Check code style 🧽
         run: npm run style:ci
       - name: Run Linter 📑
