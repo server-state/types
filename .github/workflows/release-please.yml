@@ -1,0 +1,50 @@
+on:
+  push:
+    branches:
+      - main
+name: release-please
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: GoogleCloudPlatform/release-please-action@v2
+        id: release
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          release-type: node
+          package-name: '@server-state/types'
+
+      - name: Checkout 📥
+        if: ${{ steps.release.outputs.release_created }}
+        uses: actions/checkout@v2.3.4
+
+      - name: Setup Node 💿
+        if: ${{ steps.release.outputs.release_created }}
+        uses: actions/setup-node@v2.4.0
+        with:
+          node-version: 16
+          cache: 'npm'
+          registry-url: https://registry.npmjs.org/
+
+      - name: Build
+        if: ${{ steps.release.outputs.release_created }}
+        run: npm ci && npm run build && npm run test
+
+      - name: Publish on npm 📩
+        run: npm publish --access public
+        if: ${{ steps.release.outputs.release_created }}
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+
+      - uses: actions/setup-node@v2
+        if: ${{ steps.release.outputs.release_created }}
+        with:
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@server-state'
+
+      - run: npm publish
+        if: ${{ steps.release.outputs.release_created }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

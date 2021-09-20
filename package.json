@@ -12,6 +12,7 @@
 	"scripts": {
 		"prepare": "npm run meta:register-precommit",
 		"build": "tsc -p .",
+		"prepublishOnly": "npm run build",
 		"test": "tsc -p sample",
 		"lint": "eslint --ext .js,.jsx,.ts,.tsx --ignore-pattern node_modules/ --no-error-on-unmatched-pattern \".\"",
 		"style": "prettier --write package.json '**/*{.ts,.tsx,.js,.jsx,.json,.html,.css,.scss,.sass,.yaml,.yml,.md}'",
