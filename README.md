@@ -5,7 +5,7 @@ npm: [`@server-state/types`](https://www.npmjs.com/package/@server-state/types)
 [![GitHub](https://img.shields.io/github/license/server-state/types)](LICENSE)
 [![Twitter Follow](https://img.shields.io/twitter/follow/server_state?style=social)](https://twitter.com/server_state)
 
-Common, useful TypeScript definitions for use in Server State projects.
+Standard TypeScript definitions for use in Server State projects.
 
 ## Installation
 
@@ -28,8 +28,49 @@ const myExtension: Extension<MyConfig> = (config, api) => {
 };
 ```
 
-For all full list of types, check out the reference:
-https://types.server-state.tech/
+You can also, optionally, add the package to your `tsconfig.json`'s `compilerOptions.typeRoots` array to get access to the most common types via the global `ServerStateTypes` namespace:
+
+```json
+// tsconfig.json
+{
+	"compilerOptions": {
+		"typeRoots": [
+			"node_modules/@server-state/types",
+			"node_modules/@types"
+			// [...]
+		]
+		// [...]
+	}
+	// [...]
+}
+```
+
+```ts
+// some TypeScript source file
+
+let a: ServerStateTypes.JsonSerializable;
+```
+
+Namespace access is handy when you write in JavaScript and don't want to use `import('@server-state/types')` everywhere in your JSDoc comments:
+
+```js
+// some JavaScript source file
+
+/**
+ * @type {ServerStateTypes.JsonSerializable}
+ */
+let a;
+
+// instead of
+
+/**
+ * @type {import('@server-state/types').JsonSerializable}
+ */
+let b;
+```
+
+For all complete list of types, check out the reference:
+[types.server-state.tech](https://types.server-state.tech/)
 
 ## Package structure
 
@@ -42,14 +83,14 @@ https://types.server-state.tech/
 ├── src
 │   ├── index.ts
 │   └── [...]
-├── types (built in build script)
+├── types (built-in build script)
 │   ├── index.d.ts
 │   └── [...]
 ├── CHANGELOG.md (DO NOT TOUCH! auto-generated changelog for the package)
 ├── LICENSE
 ├── package.json
 ├── README.md (you're here :P)
-└── [...] (configuration files, etc.)
+└── [...] (configuration files)
 ```
 
 ## Contributing
@@ -66,4 +107,4 @@ Made with [contributors-img](https://contrib.rocks).
 
 ## About
 
-This is part of [Server State](https://www.server-state.tech/), a project by [fliegwerk](https://www.fliegwerk.com/).
+This repository is part of [Server State](https://www.server-state.tech/), a project by [fliegwerk](https://www.fliegwerk.com/).
