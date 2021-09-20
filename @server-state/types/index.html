@@ -91,7 +91,13 @@
 
 <!-- Docs -->
     <!-- Description -->
-    <p>a type that only allows JSON serializable data</p>
+    <p>Type that only allows JSON serializable data, i.e., where the following holds true:</p>
+<pre><code class="language-ts">const orig: JsonSerializable = // [...]
+
+const new: JsonSerializable = JSON.parse(JSON.stringify(orig));
+
+// orig and new have the exact same values
+</code></pre>
 
     <!-- Tags -->
     <div class="row">
@@ -145,7 +151,7 @@
 
 <!-- Docs -->
     <!-- Description -->
-    <p>The base configuration.</p>
+    <p>The base configuration type that every extension configuration has to extend.</p>
 
     <!-- Tags -->
     <div class="row">
@@ -174,7 +180,7 @@
 
 <!-- Docs -->
     <!-- Description -->
-    <p>The returned extension object.</p>
+    <p>The object returned by an <a href="#Extension"><code>Extension</code></a> function.</p>
 
     <!-- Tags -->
     <div class="row">
@@ -198,43 +204,36 @@
 </p>
 
 <!-- Docs -->
-    <!-- no docs :( -->
-    <p><small>No docs provided</small></p>
-    <a id="ExtensionObject.onRemove" href="#ExtensionObject.onRemove">
-        <h5><code>
-                                                                                onRemove                            </code></h5>
-    </a>
-    <!-- Signature -->
-<p>
-    <b>Type:
-        <code>
-            <!-- Type -->
-            () =&gt; Promise&lt;boolean&gt;        </code>
-    </b>
-</p>
+    <!-- Description -->
+    <p>The extension's human-readable name. Should be unique (e.g., a package name)</p>
 
-<!-- Docs -->
-    <!-- no docs :( -->
-    <p><small>No docs provided</small></p>
+    <!-- Tags -->
+    <div class="row">
+            </div>
     <a id="ExtensionObject.schema" href="#ExtensionObject.schema">
         <h5><code>
-                                                                                schema                            </code></h5>
+                                                                                schema                ?            </code></h5>
     </a>
     <!-- Signature -->
 <p>
     <b>Type:
         <code>
             <!-- Type -->
-            any        </code>
+            GraphQLSchema        </code>
     </b>
 </p>
 
 <!-- Docs -->
-    <!-- no docs :( -->
-    <p><small>No docs provided</small></p>
+    <!-- Description -->
+    <p>An optional GraphQL schema extension for the Server State schema.</p>
+<p>Also requires <a href="#ExtensionObject.resolvers"><code>ExtensionObject.resolvers</code></a></p>
+
+    <!-- Tags -->
+    <div class="row">
+            </div>
     <a id="ExtensionObject.resolvers" href="#ExtensionObject.resolvers">
         <h5><code>
-                                                                                resolvers                            </code></h5>
+                                                                                resolvers                ?            </code></h5>
     </a>
     <!-- Signature -->
 <p>
@@ -246,11 +245,59 @@
 </p>
 
 <!-- Docs -->
-    <!-- no docs :( -->
-    <p><small>No docs provided</small></p>
+    <!-- Description -->
+    <p>Resolvers for the schema extensions defined in <a href="#ExtensionObject.schema"><code>ExtensionObject.schema</code></a>.</p>
+<p>Required if <code>schema</code> is set.</p>
+
+    <!-- Tags -->
+    <div class="row">
+            </div>
 
 <!-- Methods -->
-                        </div>
+    <h4>Methods</h4>
+            <a id="ExtensionObject.onRemove" href="#ExtensionObject.onRemove">
+            <h5><code>
+                                                                                                    onRemove                                        (...)
+                                    </code></h5>
+        </a>
+        
+<!-- Signature -->
+<p>
+    <b>
+        <code>
+            
+            function onRemove
+            <!-- Type Parameters -->
+            
+                        <!-- Parameters -->
+            (
+                                    )
+
+            <!-- Return type -->
+            :
+            Promise&lt;void&gt;        </code>
+    </b>
+</p>
+
+<!-- Docs -->
+    <!-- Description -->
+    <p>Function that gets called when the extension gets unloaded.</p>
+<p>Should clean up all remaining running code (e.g., subscriptions to the pub/sub bus)</p>
+
+    <!-- Tags -->
+    <div class="row">
+                    <!-- Tag name -->
+            <div class="col-sm-2">
+                <p>
+                    <mark class="tag">@returns:</mark>
+                </p>
+            </div>
+
+            <!-- Tag content -->
+            <div class="col-sm-10"><p><a href="#Promise"><code>Promise</code></a> that resolves when cleanup is finished</p>
+</div>
+            </div>
+                            </div>
     <div class="card fluid">
         <!-- Name with anchor link -->
         <a id="Extension" href="#Extension">
@@ -296,7 +343,7 @@
 
 <!-- Docs -->
     <!-- Description -->
-    <p>An Server State extension function.</p>
+    <p>A Server State extension function.</p>
 
     <!-- Tags -->
     <div class="row">
@@ -336,6 +383,45 @@
 
     <!-- Tags -->
     <div class="row">
+                    <!-- Tag name -->
+            <div class="col-sm-2">
+                <p>
+                    <mark class="tag">@param:</mark>
+                </p>
+            </div>
+
+            <!-- Tag content -->
+            <div class="col-sm-10"><p>args - the additional arguments passed to <a href="#ExtensionApi.request"><code>ExtensionApi.request</code></a>.</p>
+</div>
+                    <!-- Tag name -->
+            <div class="col-sm-2">
+                <p>
+                    <mark class="tag">@returns:</mark>
+                </p>
+            </div>
+
+            <!-- Tag content -->
+            <div class="col-sm-10"><p>Synchronously (or asynchronously, with a <a href="#Promise"><code>Promise</code></a> that resolves to the value) a JsonSerializable that gets returned to the <a href="#ExtensionApi.request"><code>ExtensionApi.request</code></a> call, or <code>void</code> (&quot;returning&quot; <code>undefined</code>)</p>
+</div>
+                    <!-- Tag name -->
+            <div class="col-sm-2">
+                <p>
+                    <mark class="tag">@example:</mark>
+                </p>
+            </div>
+
+            <!-- Tag content -->
+            <div class="col-sm-10"><pre><code class="language-ts">// let api: ExtensionApi;
+
+await api.handle('REQUEST_SOME_INFO', (arg1, arg2) =&gt; `${arg1};${arg2}`);
+
+// handler is now registered and can be used
+
+const info = await api.request('REQUEST_SOME_INFO', 'a', 2);
+
+console.log(info); // &quot;a;2&quot;
+</code></pre>
+</div>
             </div>
                         </div>
     <div class="card fluid">
@@ -423,7 +509,7 @@
 
             <!-- Return type -->
             :
-            Promise&lt;JsonSerializable&gt;        </code>
+            Promise&lt;JsonSerializable | void&gt;        </code>
     </b>
 </p>
 
@@ -463,6 +549,25 @@
 
             <!-- Tag content -->
             <div class="col-sm-10"><p><a href="#Promise"><code>Promise</code></a> that resolves to the handler's <code>callback</code> return/resolve value</p>
+</div>
+                    <!-- Tag name -->
+            <div class="col-sm-2">
+                <p>
+                    <mark class="tag">@example:</mark>
+                </p>
+            </div>
+
+            <!-- Tag content -->
+            <div class="col-sm-10"><pre><code class="language-ts">// let api: ExtensionApi;
+
+await api.handle('REQUEST_SOME_INFO', (arg1, arg2) =&gt; `${arg1};${arg2}`);
+
+// handler is now registered and can be used
+
+const info = await api.request('REQUEST_SOME_INFO', 'a', 2);
+
+console.log(info); // &quot;a;2&quot;
+</code></pre>
 </div>
                     <!-- Tag name -->
             <div class="col-sm-2">
@@ -564,6 +669,25 @@
 
             <!-- Tag content -->
             <div class="col-sm-10"><p><a href="#Promise"><code>Promise</code></a> that resolves to <a href="#Observable"><code>Observable</code></a> once the subscription is active</p>
+</div>
+                    <!-- Tag name -->
+            <div class="col-sm-2">
+                <p>
+                    <mark class="tag">@example:</mark>
+                </p>
+            </div>
+
+            <!-- Tag content -->
+            <div class="col-sm-10"><pre><code class="language-ts">// let api: ExtensionApi;
+
+await api.handle('REQUEST_SOME_INFO', (arg1, arg2) =&gt; `${arg1};${arg2}`);
+
+// handler is now registered and can be used
+
+const info = await api.request('REQUEST_SOME_INFO', 'a', 2);
+
+console.log(info); // &quot;a;2&quot;
+</code></pre>
 </div>
                     <!-- Tag name -->
             <div class="col-sm-2">
