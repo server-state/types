@@ -66,12 +66,12 @@ const myExtension: Extension&lt;MyConfig&gt; = (config, api) =&gt; {
 };
 </code></pre>
 <p>You can also, optionally, add the package to your <code>tsconfig.json</code>'s <code>compilerOptions.typeRoots</code> array to get access to the most common types via the global <code>ServerStateTypes</code> namespace:</p>
-<pre><code class="language-json">// tsconfig.json
+<pre><code class="language-json5">// tsconfig.json
 {
-	&quot;compilerOptions&quot;: {
-		&quot;typeRoots&quot;: [
-			&quot;node_modules/@server-state/types&quot;,
-			&quot;node_modules/@types&quot;
+	compilerOptions: {
+		typeRoots: [
+			'node_modules/@server-state/types',
+			'node_modules/@types'
 			// [...]
 		]
 		// [...]
