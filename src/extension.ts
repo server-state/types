@@ -22,7 +22,7 @@ export interface ExtensionObject {
 	 *
 	 * @returns {@link Promise} that resolves when cleanup is finished
 	 */
-	onRemove(): Promise<void>;
+	onRemove?(): Promise<void>;
 
 	/**
 	 * An optional GraphQL schema extension for the Server State schema.
