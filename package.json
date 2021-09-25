@@ -46,7 +46,7 @@
 		}
 	],
 	"peerDependencies": {
-		"graphql": ">=15",
+		"@graphql-tools/utils": ">=8",
 		"rxjs": ">=7"
 	},
 	"devDependencies": {
