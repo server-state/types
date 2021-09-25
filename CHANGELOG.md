@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://www.github.com/server-state/types/compare/v0.3.1...v0.4.0) (2021-09-25)
+
+
+### Features
+
+* :sparkles: Allow extension functions to be asynchronous (returning a `Promise<ExtensionObject>`) ([a957259](https://www.github.com/server-state/types/commit/a957259355f2617ad090f04afa367c47510bb4f2))
+
 ### [0.3.1](https://www.github.com/server-state/types/compare/v0.3.0...v0.3.1) (2021-09-20)
 
 
