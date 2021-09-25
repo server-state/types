@@ -45,4 +45,4 @@ export interface ExtensionObject {
 export type Extension<T extends BaseConfig> = (
 	config: T,
 	api: ExtensionApi
-) => ExtensionObject;
+) => ExtensionObject | Promise<ExtensionObject>;
