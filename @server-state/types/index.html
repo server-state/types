@@ -210,22 +210,22 @@ const new: JsonSerializable = JSON.parse(JSON.stringify(orig));
     <!-- Tags -->
     <div class="row">
             </div>
-    <a id="ExtensionObject.schema" href="#ExtensionObject.schema">
+    <a id="ExtensionObject.typeDefs" href="#ExtensionObject.typeDefs">
         <h5><code>
-                                                                                schema                ?            </code></h5>
+                                                                                typeDefs                ?            </code></h5>
     </a>
     <!-- Signature -->
 <p>
     <b>Type:
         <code>
             <!-- Type -->
-            GraphQLSchema        </code>
+            TypeSource        </code>
     </b>
 </p>
 
 <!-- Docs -->
     <!-- Description -->
-    <p>An optional GraphQL schema extension for the Server State schema.</p>
+    <p><code>typeDefs</code> for an optional GraphQL schema extension for the Server State schema.</p>
 <p>Also requires <a href="#ExtensionObject.resolvers"><code>ExtensionObject.resolvers</code></a></p>
 
     <!-- Tags -->
@@ -240,7 +240,7 @@ const new: JsonSerializable = JSON.parse(JSON.stringify(orig));
     <b>Type:
         <code>
             <!-- Type -->
-            any        </code>
+            IResolvers        </code>
     </b>
 </p>
 
@@ -258,7 +258,7 @@ const new: JsonSerializable = JSON.parse(JSON.stringify(orig));
             <a id="ExtensionObject.onRemove" href="#ExtensionObject.onRemove">
             <h5><code>
                                                                                                     onRemove                                        (...)
-                                    </code></h5>
+                    ?                </code></h5>
         </a>
         
 <!-- Signature -->
