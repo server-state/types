@@ -1,4 +1,4 @@
-import { GraphQLSchema } from 'graphql';
+import { TypeSource, IResolvers } from '@graphql-tools/utils';
 import { JsonSerializable } from './json-serializable';
 import { ExtensionApi } from './extension-api';
 
@@ -15,6 +15,7 @@ export interface ExtensionObject {
 	 * The extension's human-readable name. Should be unique (e.g., a package name)
 	 */
 	name: string;
+
 	/**
 	 * Function that gets called when the extension gets unloaded.
 	 *
@@ -25,18 +26,18 @@ export interface ExtensionObject {
 	onRemove?(): Promise<void>;
 
 	/**
-	 * An optional GraphQL schema extension for the Server State schema.
+	 * `typeDefs` for an optional GraphQL schema extension for the Server State schema.
 	 *
 	 * Also requires {@link ExtensionObject.resolvers}
 	 */
-	schema?: GraphQLSchema;
+	typeDefs?: TypeSource;
 
 	/**
 	 * Resolvers for the schema extensions defined in {@link ExtensionObject.schema}.
 	 *
 	 * Required if `schema` is set.
 	 */
-	resolvers?: any;
+	resolvers?: IResolvers;
 }
 
 /**
