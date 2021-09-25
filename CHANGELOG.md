@@ -1,5 +1,28 @@
 # Changelog
 
+## [0.5.0](https://www.github.com/server-state/types/compare/v0.4.0...v0.5.0) (2021-09-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* **extensions:** `ExtensionObject.schema?: GraphQLSchema` got replaced by `ExtensionObject.typeDefs?: TypeSource`.
+* **extensions:** `ExtensionObject.resolvers?: any` is now `ExtensionObject.resolvers?: IResolvers`. This shouldn't cause any breaking changes for working extensions, but narrows the type to only valid resolver functions, meaning invalid extensions could break from this change.
+
+### Features
+
+* **extensions:** :sparkles: Make `onRemove` callback function optional in `ExtensionObject` ([ad1e44d](https://www.github.com/server-state/types/commit/ad1e44d4096016c3c326c10f3f0f9e53d87623d0))
+
+
+### Bug Fixes
+
+* **extensions:** :boom: Fix `ExtensionObject.resolvers` type ([977d710](https://www.github.com/server-state/types/commit/977d7103f0cb2a7eab0d4b443eceebb5e9b8f7c1))
+* **extensions:** :boom: Rename `ExtensionObject.schema` to `ExtensionObject.typeDefs` ([977d710](https://www.github.com/server-state/types/commit/977d7103f0cb2a7eab0d4b443eceebb5e9b8f7c1))
+
+
+### meta
+
+* Multiple changes ([977d710](https://www.github.com/server-state/types/commit/977d7103f0cb2a7eab0d4b443eceebb5e9b8f7c1))
+
 ## [0.4.0](https://www.github.com/server-state/types/compare/v0.3.1...v0.4.0) (2021-09-25)
 
 
