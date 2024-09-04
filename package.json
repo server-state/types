@@ -59,7 +59,7 @@
 		"eslint-config-prettier": "8.6.0",
 		"eslint-plugin-import": "2.27.5",
 		"eslint-plugin-jsdoc": "39.7.4",
-		"eslint-plugin-jsx-a11y": "6.7.1",
+		"eslint-plugin-jsx-a11y": "6.10.0",
 		"eslint-plugin-prettier": "4.2.1",
 		"eslint-plugin-tsdoc": "0.2.17",
 		"fliegdoc": "0.6.0",
